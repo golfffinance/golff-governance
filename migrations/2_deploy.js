@@ -10,7 +10,7 @@ const GovernorAlpha = artifacts.require("GovernorAlpha");
 
 const migration = async (deployer, network, accounts) => {
   await Promise.all([
-    // deployToken(deployer, network, accounts),
+    deployToken(deployer, network, accounts),
   ]);
 };
 
@@ -26,7 +26,7 @@ async function deployToken(deployer, network, accounts) {
   let gdaoDelegateAddress = GDAODelegate.address;
 
   // 2. GDAODelegator(GDAO)
-  let decimals = 8;
+  let decimals = 18;
   let totalSupply = 100000;
   let init = web3.utils.toBN(10 ** decimals).mul(web3.utils.toBN(totalSupply));
   await deployer.deploy(GDAODelegator,"Golff.finance DAO","GDAO", decimals, init, gdaoDelegateAddress, []);
