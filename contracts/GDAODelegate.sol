@@ -881,7 +881,7 @@ contract GDAO is GDAOToken {
     )
         public
     {
-        require(initSupply_ > 0, "0 init supply");
+        require(initSupply_ >= 0, "0 init supply");
 
         super.initialize(name_, symbol_, decimals_);
 
